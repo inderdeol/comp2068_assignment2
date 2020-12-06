@@ -2,8 +2,8 @@ extends layout
 
 block content
     br
-    p.display-4.text-center.text-secondary.bg-light Insert item to Advertise portal for selling it.
-    form(method='POST' action='/insert')
+    p.display-4.text-center.text-secondary.bg-light Update item to Advertise portal for reselling it.
+    form(method='POST' action='/update')
         .form-group
             label(for='item') Name of the Item:
             input#username.form-control(type='text' placeholder='Enter Item Name' name='item')
@@ -16,5 +16,7 @@ block content
         .form-group
             label(for='condition') Condition:
             input#password.form-control(type='text' placeholder='Condition of the product' name='condition')
-        input(type='submit' value='Add').btn.btn-info
+        input(type='hidden' name='id' value=ad.id)
+
+        input(type='submit' value='Update').btn.btn-info
         
