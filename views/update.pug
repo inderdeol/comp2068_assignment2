@@ -6,16 +6,16 @@ block content
     form(method='POST' action='/update')
         .form-group
             label(for='item') Name of the Item:
-            input#username.form-control(type='text' placeholder='Enter Item Name' name='item')
+            input#username.form-control(type='text' placeholder='Enter Item Name' name='item' value=ad.item)
         .form-group
             label(for='description') Description:
-            input#password.form-control(type='text' placeholder='Enter description' name='description')
+            input#password.form-control(type='text' placeholder='Enter description' name='description' value=ad.description)
         .form-group
             label(for='price') Price:
-            input#password.form-control(type='text' placeholder='Price of the product' name='price')
+            input#password.form-control(type='text' placeholder='Price of the product' name='price' value=ad.price)
         .form-group
             label(for='condition') Condition:
-            input#password.form-control(type='text' placeholder='Condition of the product' name='condition')
+            input#password.form-control(type='text' placeholder='Condition of the product' name='condition' value=ad.condition)
         input(type='hidden' name='id' value=ad.id)
 
         input(type='submit' value='Update').btn.btn-info

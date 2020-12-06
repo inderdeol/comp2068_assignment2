@@ -8,7 +8,18 @@ var adsModel = require('../models/ads');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  // res.render('index', { title: 'Express',  });
+  // render docs from mongo collection
+  try{
+    adsModel.find({}, function (err, ad) {
+        console.log(err);
+        console.log(ad);
+        res.render('index', { ad: ad});
+    });
+  }
+  catch (err) {
+      console.log(err);
+  }
 });
 
 router.get('/insert', function(req, res){
@@ -44,6 +55,12 @@ router.post('/update', function (req, res) {
   console.log(req.body);
   adsModel.findByIdAndUpdate(req.body.id, { item: req.body.item, description: req.body.description, price: req.body.price, condition: req.body.condition}, function (err, model) {
       console.log(err);
+      res.redirect('/');
+  });
+});
+
+router.post('/remove/:id', function (req, res) {
+  adsModel.findByIdAndDelete(req.params.id, function (err, model) {
       res.redirect('/');
   });
 });
