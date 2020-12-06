@@ -3,7 +3,12 @@ extends layout
 block content
   h1= title
   .jumbotron
-    h1.text-center Advertise Hub
+    .row  
+      .col-sm-8
+        h1.text-center Advertise Hub
+      .col-sm-4
+        a.btn.btn-success(href='/insert' role='button') Add new Item to display
+
 
   .row  
     .col-sm-9
